@@ -1,0 +1,19 @@
+<div class="card-columns">
+  <div class="card" *ngFor="let image of images">
+    <img class="card-img-top" src="{{ getHigherResImage(image.media.m) }}" alt="Card image cap">
+    <div class="card-body">
+      <a href="{{ image.link }}">
+        <h5 class="card-title truncate-title" target="_blank">
+          {{ image.title }}
+        </h5>
+      </a>
+      <h6 class="card-subtitle mb-2 text-muted">
+        By <a href="https://www.flickr.com/people/{{ image.author_id }}/" target="_blank">{{ getAuthorName(image.author) }}</a>
+      </h6>
+      <p class="card-text"></p>
+      <p class="card-text" *ngIf="image.tags">
+        <small class="text-muted">Tags: {{ image.tags }}</small>
+      </p>
+    </div>
+  </div>
+</div>

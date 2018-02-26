@@ -1,20 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+  <!-- Fix this with styling -->
+<br><br><br>
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <span class="navbar-brand mb-0 h1">
+      Angular Flickr App
+    </span>
+  </nav>
+</header>
 
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, time to flick?</h1>
+    <p class="lead">Search Flickr using this app, it'll give you cards.</p>
+    <p><small>A notice, this consumes the <strong>public</strong> flickr API, content varies dramatically...</small></p>
+    <hr class="my-4">
+    <p class="lead text-center">
+      <app-search (update)="tagsUpdate($event)"></app-search>
+    </p>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <app-images [images]="flickrImages"></app-images>
+  </div>
+</main>
+
+<br><br>
+
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Elliot Massey, <a href="https://github.com/elliotcmassey/angular-flickr-app" target="_blank">Source</a> </span>
+  </div>
+</footer>
