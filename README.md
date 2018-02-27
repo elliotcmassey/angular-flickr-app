@@ -1,4 +1,13 @@
-# AngularFlickrApp
+# Angular Flickr App
+
+This is a Angular App for basic consumption of the Flickr Public API, it uses the Angular CLI to build, setup and management packaging into a production ready app.
+
+```
+npm install - install package.json dependencies
+npm start - run in dev mode, watching files for changes, append with --prod for production mode
+npm build - builds project in /dist, --prod for production build
+npm test - run default provided karma tests
+```
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
