@@ -16,7 +16,7 @@
     <p><small>A notice, this consumes the <strong>public</strong> flickr API, content varies dramatically...</small></p>
     <hr class="my-4">
     <p class="lead text-center">
-      <app-search (update)="tagsUpdate($event)"></app-search>
+      <app-search (update)="tagsUpdate($event)" (refresh)="getFlickrImages()"></app-search>
     </p>
   </div>
 

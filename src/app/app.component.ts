@@ -15,15 +15,17 @@ export class AppComponent implements OnDestroy {
 
   flickrImages: FlickrImage[] = [];
 
+  savedTags: string = '';
+
   constructor(
     private flickr: FlickrService,
   ) {
     this.getFlickrImages();
   }
 
-  getFlickrImages(tags?: string) {
+  getFlickrImages() {
     this.getFlickrImagesSubscription = this.flickr
-      .getFlickrImages(tags).subscribe(
+      .getFlickrImages(this.savedTags).subscribe(
         (response) => {
           console.log(response);
           this.flickrImages = response.items;
@@ -35,9 +37,8 @@ export class AppComponent implements OnDestroy {
   }
 
   tagsUpdate(event: any) {
-    console.log('event', event);
-    const tags: string = event.tags.join();
-    this.getFlickrImages(tags);
+    this.savedTags = event.tags.join();
+    this.getFlickrImages();
   }
 
   ngOnDestroy() {

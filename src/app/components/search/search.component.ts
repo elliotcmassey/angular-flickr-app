@@ -8,6 +8,7 @@ export class SearchComponent implements OnInit {
 
   tags: string[] = [];
   @Output() update = new EventEmitter<any>();
+  @Output() refresh = new EventEmitter<any>();
   tag: string = '';
 
   constructor() { }
@@ -16,7 +17,8 @@ export class SearchComponent implements OnInit {
   }
 
   saveTag() {
-    this.tags.push(this.tag);
+    const tagsArray = this.tag.split(' ');
+    this.tags.push(...tagsArray);
     this.tag = '';
     this.update.emit({
       tags: this.tags
