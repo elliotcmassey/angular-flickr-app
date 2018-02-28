@@ -4,7 +4,8 @@ This is a Angular App for basic consumption of the Flickr Public API, it uses th
 
 ```
 npm install - install package.json dependencies
-npm start - run in dev mode, watching files for changes, append with --prod for production mode
+npm start - run in dev mode, watching files for changes
+npm run start-prod - run in production mode, watching files for changes
 npm build - builds project in /dist, --prod for production build
 npm test - run default provided karma tests
 ```

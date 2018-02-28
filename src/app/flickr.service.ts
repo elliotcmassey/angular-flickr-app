@@ -12,6 +12,11 @@ export class FlickrService {
     private http: HttpClient,
   ) { }
 
+  /**
+   * @param {HttpErrorResponse} error The error thrown from the HTTP Client
+   *
+   * @returns the Error passed in
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -27,6 +32,11 @@ export class FlickrService {
     return new ErrorObservable(error);
   }
 
+  /**
+   * @param {string} tags User provided tags in a comman separated string
+   *
+   * @returns a Observable from the http client
+   */
   getFlickrImages(tags?: string) {
     const url = flickrApi;
     let params = new HttpParams();

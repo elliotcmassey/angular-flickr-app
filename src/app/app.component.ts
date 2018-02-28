@@ -23,11 +23,15 @@ export class AppComponent implements OnDestroy {
     this.getFlickrImages();
   }
 
-  getFlickrImages() {
+  /**
+   * Subscribes the function in the Flickr Service to return an array of FlickrImages
+   *
+   * @returns void
+   */
+  getFlickrImages(): void {
     this.getFlickrImagesSubscription = this.flickr
       .getFlickrImages(this.savedTags).subscribe(
         (response) => {
-          console.log(response);
           this.flickrImages = response.items;
         },
         (error) => {
@@ -36,12 +40,24 @@ export class AppComponent implements OnDestroy {
       );
   }
 
-  tagsUpdate(event: any) {
+  /**
+   * @param {any} event Event exposed via the search component containing the
+   * value of the input bar. Refreshes the Flickr Images
+   *
+   */
+  tagsUpdate(event: any): void {
     this.savedTags = event.tags.join();
     this.getFlickrImages();
   }
 
-  ngOnDestroy() {
+  /**
+   * Called every time the component is destroyed (route away, app closed). Ensures there are no
+   * subscriptions still in memory - implication is larger apps with multiple subscriptions. This
+   * can cause unexpected behaviour
+   *
+   * @returns void
+   */
+  ngOnDestroy(): void {
     if (this.getFlickrImagesSubscription) this.getFlickrImagesSubscription.unsubscribe();
   }
 
